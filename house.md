@@ -1,7 +1,6 @@
 # house:
 
-### Motel: 
-vector3(151.57, -1007.52, -99.0)
+Motel: vector3(151.57, -1007.52, -99.0)
 
 Grand entrepot: vector3(1027.09, -3101.83, -39.01)
 
