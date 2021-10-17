@@ -1,15 +1,15 @@
-# hBulgary
+# hBulgary:
 Le scipt Foctonne sous ESX
 
-### Preview
+### Preview:
 https://jsp/jspnonplus
 
-### Installation
+### Installation:
 Mettre tous les fichiers dans le fichier ressources
 
 Ajouter ensure hBulgary dans le server.cfg ou ressource.cfg et démarrer le serveur
 
-### Support
+### Support:
 
 Sur discord : ach#9690
 
