@@ -18,4 +18,6 @@ Ajouter ensure hBulgary dans le server.cfg ou ressource.cfg et démarrer le serv
 
 ### Support
 
-discord.gg/fivedev
+Sur discord : ach#9690
+
+ou sur discord.gg/fivedev
