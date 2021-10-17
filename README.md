@@ -15,3 +15,7 @@ Ajouter ensure hBulgary dans le server.cfg ou ressource.cfg et démarrer le serv
 [X] Vole dans les maisons
 
 [ ] Vole de voiture dans les garages
+
+### Support
+
+discord.gg/fivedev
