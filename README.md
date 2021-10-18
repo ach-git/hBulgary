@@ -1,8 +1,7 @@
 # hBulgary:
-Le scipt Foctonne sous ESX
 
 ### Preview:
-https://jsp/jspnonplus
+https://streamable.com/c1esew
 
 ### Installation:
 Mettre tous les fichiers dans le fichier ressources
