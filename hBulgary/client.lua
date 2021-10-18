@@ -89,7 +89,7 @@ function StealStart(enter, target, house)
                 SetEntityHeading(playerPed, house.hEnter+180)
             end
         end)
-        local timestartrandom = ESX.Math.Round(house.time/4)
+        local timestartrandom = ESX.Math.Round(house.time/3)
         local randomtime = math.random(timestartrandom , house.time)
         Citizen.SetTimeout(randomtime*1000, function()
             if currentSteal then
