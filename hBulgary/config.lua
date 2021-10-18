@@ -6,7 +6,7 @@ Config = {
             Enter = vector3(96.49, -239.7915, 51.399), hEnter = 350.0,
             Exit = vector3(346.52, -1012.8, -99.2), hExit = 180.0,
             MaxStealTime = 20,-- en seconde
-            time = 5, -- en seconde
+            lockpicktime = 5, -- en seconde
             Objects = {
                 {
                     name = "Television",
@@ -33,7 +33,7 @@ Config = {
             Enter = vector3(312.92, -218.79, 58.01), hEnter = 155.0,
             Exit = vector3(266.11, -1007.18, -101.012), hExit = 180.0,
             MaxStealTime = 20,-- en seconde
-            time = 5,-- en seconde
+            lockpicktime = 5,-- en seconde
             Objects = {
                 {
                     name = "Téléphone",
