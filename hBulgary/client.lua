@@ -89,8 +89,8 @@ function StealStart(enter, target, house)
                 SetEntityHeading(playerPed, house.hEnter+180)
             end
         end)
-        local timestartrandom = ESX.Math.Round(house.time/3)
-        local randomtime = math.random(timestartrandom , house.time)
+        local timestartrandom = ESX.Math.Round(house.MaxStealTime/3)
+        local randomtime = math.random(timestartrandom , house.MaxStealTime)
         Citizen.SetTimeout(randomtime*1000, function()
             if currentSteal then
                 TriggerServerEvent('hbulgary:server:policeAlert', enter)
