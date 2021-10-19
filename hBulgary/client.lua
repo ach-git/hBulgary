@@ -29,7 +29,7 @@ Citizen.CreateThread(function()
                         if dst <= 1.0 then
                             Visual.Subtitle("Appuyez sur ~g~E~s~ pour voler", 1)
                             if IsControlJustPressed(0, 51) then
-                                StealStart(zoneCenter, v.Exit, v)
+                                StealStart(v)
                             end
                         end
                     end
@@ -56,7 +56,7 @@ Citizen.CreateThread(function()
 
 end)
 
-function StealStart(enter, target, house)
+function StealStart(house)
     local inventory = ESX.GetPlayerData().inventory
     local lockpick = nil
     for i=1, #inventory, 1 do                          
@@ -67,11 +67,11 @@ function StealStart(enter, target, house)
     if lockpick > 0 then
         local playerPed = PlayerPedId()
         FreezeEntityPosition(playerPed, true)
-        SetEntityCoords(playerPed, enter.x, enter.y, enter.z-0.98)
+        SetEntityCoords(playerPed, house.Enter.x, house.Enter.y, house.Enter.z-0.98)
         SetEntityHeading(playerPed, house.hEnter)
         AnimJoueur("mini@safe_cracking", "idle_base")
         Wait(house.lockpicktime * 1000)
-        SetEntityCoords(playerPed, target.x, target.y, target.z-0.98)
+        SetEntityCoords(playerPed, house.Exit.x, house.Exit.y, house.Exit.z-0.98)
         SetEntityHeading(playerPed, house.hExit+180)
         FreezeEntityPosition(playerPed, false)
         ClearPedTasksImmediately(playerPed)
@@ -85,7 +85,7 @@ function StealStart(enter, target, house)
                 DoScreenFadeOut(1500)
                 Wait(3000)
                 DoScreenFadeIn(1500)
-                SetEntityCoords(playerPed, enter.x, enter.y, enter.z-0.98)
+                SetEntityCoords(playerPed, house.Enter.x, house.Enter.y, house.Enter.z-0.98)
                 SetEntityHeading(playerPed, house.hEnter+180)
             end
         end)
@@ -93,7 +93,7 @@ function StealStart(enter, target, house)
         local randomtime = math.random(timestartrandom , house.MaxStealTime)
         Citizen.SetTimeout(randomtime*1000, function()
             if currentSteal then
-                TriggerServerEvent('hbulgary:server:policeAlert', enter)
+                TriggerServerEvent('hbulgary:server:policeAlert', house.Enter)
                 Wait(5000)
                 ESX.ShowNotification("~r~La police a été prevenue du vole!")
             end
@@ -101,8 +101,8 @@ function StealStart(enter, target, house)
         while currentSteal do 
             house.cooldownentry = true
             local playerPos = GetEntityCoords(PlayerPedId())
-            local dstexit = #(playerPos-target)
-            DrawMarker(2, target, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.30, 0.30, 0.30, 255, 0, 0, 255, 55555, false, true, 2, false, false, false, false)
+            local dstexit = #(playerPos-house.Exit)
+            DrawMarker(2, house, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.30, 0.30, 0.30, 255, 0, 0, 255, 55555, false, true, 2, false, false, false, false)
             if dstexit <= 1.5 then
                 Visual.Subtitle("Appuyez sur ~g~E~s~ pour sortir", 1)
                 if IsControlJustPressed(0, 51) then
@@ -114,7 +114,7 @@ function StealStart(enter, target, house)
                     Wait(2000)
                     DoScreenFadeIn(1000)
                     currentSteal = false
-                    SetEntityCoords(playerPed, enter.x, enter.y, enter.z-0.98)
+                    SetEntityCoords(playerPed, house.Enter.x, house.Enter.y, house.Enter.z-0.98)
                     SetEntityHeading(playerPed, house.hEnter+180)
                     FreezeEntityPosition(playerPed, false)
                     ESX.ShowNotification("Vous etes ~r~sorite~s~ de "..house.name)
