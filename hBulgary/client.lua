@@ -119,7 +119,7 @@ function StealStart(house)
                     FreezeEntityPosition(playerPed, false)
                     ESX.ShowNotification("Vous etes ~r~sorite~s~ de "..house.name)
 
-                    Citizen.SetTimeout(180000,function()
+                    Citizen.SetTimeout(200000,function()
                         house.cooldownentry = false
                     end)
                 end
