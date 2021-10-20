@@ -77,7 +77,7 @@ function StealStart(house)
         ClearPedTasksImmediately(playerPed)
         currentSteal = true
         Visual.Subtitle("Vous avez ~g~réussi~s~ le crochetage.", 1)
-        TriggerServerEvent("hburglary:sellItem", "lockpick", 1)
+        TriggerServerEvent("hburglary:sellItem", "lockpick")
         Citizen.SetTimeout(house.MaxStealTime*1000,function()
             if currentSteal then
                 currentSteal = false
@@ -187,7 +187,7 @@ function OpenMenuSell()
                         RageUI.Button("Vendre "..v.label, "Vous vendez votre "..v.label.." au contrbandier pour ~g~"..price.."$", {RightLabel = "~g~"..price.."$"}, true, {
                             onSelected = function()
                                 ESX.ShowNotification("Vous avez vendu "..v.label.." pour ~g~"..price.."$")
-                                TriggerServerEvent("hburglary:sellItem", v.name, 1)
+                                TriggerServerEvent("hburglary:sellItem", v.name)
                             end
                         })
                     end
