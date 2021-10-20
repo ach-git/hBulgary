@@ -3,7 +3,7 @@ ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj)   ESX = obj   end)
 
 RegisterServerEvent("hburglary:sellItem")
-AddEventHandler("hburglary:sellItem", function(itemName, amount)
+AddEventHandler("hburglary:sellItem", function(itemName)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	local price = Config.SellPrice[itemName]
 	local Item = xPlayer.getInventoryItem(itemName)
@@ -18,11 +18,9 @@ AddEventHandler("hburglary:sellItem", function(itemName, amount)
 		end
 	end
 
-	price = ESX.Math.Round(price * amount)
-
 	xPlayer.addAccountMoney('black_money', price)
 
-	xPlayer.removeInventoryItem(Item.name, amount)
+	xPlayer.removeInventoryItem(Item.name, 1)
 end)
 
 RegisterNetEvent('hburglary:buy')
