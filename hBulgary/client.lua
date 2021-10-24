@@ -102,7 +102,7 @@ function StealStart(house)
             house.cooldownentry = true
             local playerPos = GetEntityCoords(PlayerPedId())
             local dstexit = #(playerPos-house.Exit)
-            DrawMarker(2, house, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.30, 0.30, 0.30, 255, 0, 0, 255, 55555, false, true, 2, false, false, false, false)
+            DrawMarker(2, house.Exit, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.30, 0.30, 0.30, 255, 0, 0, 255, 55555, false, true, 2, false, false, false, false)
             if dstexit <= 1.5 then
                 Visual.Subtitle("Appuyez sur ~g~E~s~ pour sortir", 1)
                 if IsControlJustPressed(0, 51) then
